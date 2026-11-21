@@ -1,0 +1,10 @@
+jdk:
+  - openjdk17
+
+install:
+  # 1. Download from releases
+  - curl -L -o jsg-core-${VERSION}.jar "https://github.com/Tau-ri-Dev/Mod-JSGCore-public/releases/download/${VERSION}/jsg-core-${VERSION}.jar"
+  - curl -L -o jsg-core-${VERSION}-javadoc.jar "https://github.com/Tau-ri-Dev/Mod-JSGCore-public/releases/download/${VERSION}/jsg-core-${VERSION}-javadoc.jar"
+
+  # 2. Install to jitpack local
+  - mvn install:install-file -Dfile=jsg-core-${VERSION}.jar -Djavadoc=jsg-core-${VERSION}-javadoc.jar -DgroupId=com.github.Tau-ri-Dev -DartifactId=jsg-core -Dversion=${VERSION} -Dpackaging=jar
